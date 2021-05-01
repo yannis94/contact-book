@@ -1,9 +1,49 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
-  }
+  "contacts": [
+    {
+      "pseudo" : "yaya94",
+      "firstname": "yannis",
+      "lastname": "bengueci",
+      "infoSup": {
+        "email": "bgci@gmail.fr",
+        "telephone": "020064201",
+        "twitter": "yayaleboss",
+        "instagram": "yayabg94"
+      }
+      
+    },
+    {
+      "pseudo": "lala98", 
+      "firstname": "Laura",
+      "lastname": "Peligrino",
+      "infoSup": {
+        "email": "lolo@mail.fr",
+        "telephone": "0264254601",
+        "twitter": "lolopelig",
+        "instagram": "lauraPel"
+      }
+    },
+    {
+      "pseudo": "Perfectow", 
+      "firstname": "Perceval",
+      "lastname": "Des Champigo",
+      "infoSup": {
+        "email": "perceval@gmail.com",
+        "telephone": "0526520656",
+        "twitter": "perpercev",
+        "instagram": "lepercevalOff"
+      }
+    },
+    {
+      "pseudo": "Jaco",
+      "firstname": "Jacob",
+      "lastname": "Louverta",
+      "infoSup": {
+        "email": "jacob@laposte.fr",
+        "telephone": "064585985",
+        "twitter": "levraijaco",
+        "instagram": "jacoff"
+      }
+    }
+  ]
+}
