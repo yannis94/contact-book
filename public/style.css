@@ -15,3 +15,14 @@ body {
     border-radius: 8px;
     background-color: darkcyan;
 }
+
+.display_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hide_form {
+    display: none;
+}
