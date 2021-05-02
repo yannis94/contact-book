@@ -1,25 +1,8 @@
-export function Form() {
-
-    let contacts_obj = {};
-
-    //fetch db contact
-    fetch("http://localhost:3003/contacts", {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        method: 'GET'
-    })
-    .then(rep => rep.json()
-    .then(db => {
-        for (const contact in db) {
-            contacts_obj[contact] = db[contact]
-        }
-    }))
+export function Form(props) {
 
 
     function handleClick(e) {
-        name = document.querySelector("#username").value;
+        name = document.querySelector("#pseudo").value;
         if ( name !== "") {
             contacts_obj[name] = {
                 
@@ -44,16 +27,26 @@ export function Form() {
         }
     }
 
-    return (
-        <div>
-            <input id="username" type="text" placeholder="Your username" />
-            <input id="firstname"type="text" placeholder="Your firstname" />
-            <input id="lastname"type="text" placeholder="Your lastname" />
-            <input id="email"type="text" placeholder="Your email" />
-            <input id="tel"type="text" placeholder="Your tel" />
-            <input id="twitter"type="text" placeholder="Your twitter tag" />
-            <input id="instagram"type="text" placeholder="Your instagram tag" />
-            <button onClick={handleClick}>Create</button>
-        </div>
-    )
+    if (props.display) {
+        console.log(props.contact) //recup les info contact
+
+        return (
+            <div>
+                <input id="pseudo" type="text" value={props.contact.pseudo} placeholder="Your username" />
+                <input id="firstname"type="text" value={props.contact.firstname} placeholder="Your firstname" />
+                <input id="lastname"type="text" value={props.contact.lastname} placeholder="Your lastname" />
+                <input id="birthdate"type="text" value={props.contact.infoSup.birthdate} placeholder="Your birthdate" />
+                <input id="email"type="text" value={props.contact.infoSup.email} placeholder="Your email" />
+                <input id="tel"type="text" value={props.contact.infoSup.telephone} placeholder="Your tel" />
+                <input id="twitter"type="text" value={props.contact.infoSup.twitter} placeholder="Your twitter tag" />
+                <input id="instagram"type="text" value={props.contact.infoSup.instagram} placeholder="Your instagram tag" />
+                <button onClick={handleClick}>Create</button>
+            </div>
+        )
+    }
+    else {
+        return <div>no</div>
+    }
+
+    
 }

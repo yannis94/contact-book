@@ -5,6 +5,7 @@
       "firstname": "yannis",
       "lastname": "bengueci",
       "infoSup": {
+        "birthdate": "06-23-1997",
         "email": "bgci@gmail.fr",
         "telephone": "020064201",
         "twitter": "yayaleboss",
@@ -17,6 +18,7 @@
       "firstname": "Laura",
       "lastname": "Peligrino",
       "infoSup": {
+        "birthdate": "06-23-1997",
         "email": "lolo@mail.fr",
         "telephone": "0264254601",
         "twitter": "lolopelig",
@@ -28,6 +30,7 @@
       "firstname": "Perceval",
       "lastname": "Des Champigo",
       "infoSup": {
+        "birthdate": "06-23-1997",
         "email": "perceval@gmail.com",
         "telephone": "0526520656",
         "twitter": "perpercev",
@@ -39,6 +42,7 @@
       "firstname": "Jacob",
       "lastname": "Louverta",
       "infoSup": {
+        "birthdate": "06-23-1997",
         "email": "jacob@laposte.fr",
         "telephone": "064585985",
         "twitter": "levraijaco",
