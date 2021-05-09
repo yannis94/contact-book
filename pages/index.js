@@ -1,6 +1,7 @@
 import { Form } from "../public/components/Form"
 import { Card } from "../public/components/Card"
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, useDebugValue } from 'react';
 
 function HomePage() {
 
@@ -10,13 +11,14 @@ function HomePage() {
     const [contactList, setContactList] = useState([]);
     const [error, setError] = useState(null);
 
-    const [formVisiblity, setFormVisiblity] = useState(false);
-    const [contactPseudo, setContactPseudo] = useState(0);
-    const [formObj, setFormObj] = useState({})
+    const [url, setUrl] = useState("http://localhost:3003/contacts");
 
     useEffect(() => {
-        
-        fetch("http://localhost:3003/contacts", {
+        fetchContact(url)
+    }, [])
+
+    function fetchContact(arg) {
+        fetch(arg, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -34,7 +36,7 @@ function HomePage() {
                 setIsLoaded(true);
             }
         )
-    }, [])
+    }
 
     function handleClick(e) {
         setFormVisiblity(true);
@@ -62,6 +64,17 @@ function HomePage() {
         console.log(e)
     }
 
+    function searchBarChange(e) {
+        console.log(e.target.value)
+        if (e.target.value !== "") {
+            setUrl(`http://localhost:3003/contacts?pseudo=${e.target.value}`);
+        }
+        else {
+            setUrl("http://localhost:3003/contacts");
+        }
+        fetchContact(url)
+    }
+
     if (error) {
         console.log(error)
         return <div>Something went wrong...</div>
@@ -77,32 +90,30 @@ function HomePage() {
                     <h1>My contact book</h1>
                     <button id="btn_add_contact" onClick={handleClick}>New contact</button>
                 </div>
-                <div id="contacts" onClick={handleClick}>                
-                    {contactList.map((contact, index) => {
-                        return (
-                        <Card
-                            id={index}
-                            pseudo={contact.pseudo}
-                            firstname={contact.firstname}
-                            lastname={contact.lastname}
-                            birthdate={contact.birthdate}
-                            email={contact.email}
-                            telephone={contact.telephone}
-                            twitter={contact.twitter}
-                            instagram={contact.instagram}
-                        />
-                        )
-                    })}
+                <div id="searchbar-section">
+                    <input type="text" placeholder="Search contact ..." onChange={searchBarChange} />
                 </div>
-                <div id="the_form" className={formVisiblity ? "display_form" : "hide_form"}>
-                    <input id="pseudo" type="text" value={contactList[contactPseudo].pseudo} placeholder="Your username" />
-                    <input id="firstname"type="text" value={contactList[contactPseudo].firstname} placeholder="Your firstname" />
-                    <input id="lastname"type="text" value={contactList[contactPseudo].lastname} placeholder="Your lastname" />
-                    <input id="birthdate"type="text" value={contactList[contactPseudo].birthdate} placeholder="Your birthdate" />
-                    <input id="email"type="text" value={contactList[contactPseudo].email} placeholder="Your email" />
-                    <input id="tel"type="text" value={contactList[contactPseudo].telephone} placeholder="Your tel" />
-                    <input id="twitter"type="text" value={contactList[contactPseudo].twitter} placeholder="Your twitter tag" />
-                    <input id="instagram"type="text" value={contactList[contactPseudo].instagram} placeholder="Your instagram tag" />
+                <div id="contacts" onClick={handleClick}>                
+                    {
+                        contactList.length > 0 ? 
+                            contactList.map((contact, index) => {
+                                return (
+                                <Card
+                                    id={index}
+                                    pseudo={contact.pseudo}
+                                    firstname={contact.firstname}
+                                    lastname={contact.lastname}
+                                    birthdate={contact.birthdate}
+                                    email={contact.email}
+                                    telephone={contact.telephone}
+                                    twitter={contact.twitter}
+                                    instagram={contact.instagram}
+                                />
+                                )
+                            })
+                        :
+                            <div><h3>No contact found...</h3></div>
+                    }
                 </div>
             </div>
         )
