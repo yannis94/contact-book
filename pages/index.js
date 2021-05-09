@@ -14,11 +14,7 @@ function HomePage() {
     const [url, setUrl] = useState("http://localhost:3003/contacts");
 
     useEffect(() => {
-        fetchContact(url)
-    }, [])
-
-    function fetchContact(arg) {
-        fetch(arg, {
+        fetch(url, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -36,7 +32,8 @@ function HomePage() {
                 setIsLoaded(true);
             }
         )
-    }
+    }, [url])
+
 
     function handleClick(e) {
         setFormVisiblity(true);
@@ -72,7 +69,6 @@ function HomePage() {
         else {
             setUrl("http://localhost:3003/contacts");
         }
-        fetchContact(url)
     }
 
     if (error) {
