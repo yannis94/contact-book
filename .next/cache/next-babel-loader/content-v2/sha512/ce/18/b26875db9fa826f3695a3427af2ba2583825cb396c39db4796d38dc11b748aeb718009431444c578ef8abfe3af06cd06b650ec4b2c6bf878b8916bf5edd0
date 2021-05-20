@@ -1,1 +1,0 @@
-{"ast":null,"code":"export function ContactsList() {}","map":{"version":3,"sources":["/home/ghost-2306/Labo/contact_book/public/components/ContactsList.js"],"names":["ContactsList"],"mappings":"AAAA,OAAO,SAASA,YAAT,GAAwB,CAE9B","sourcesContent":["export function ContactsList() {\n    \n}"]},"metadata":{},"sourceType":"module"}
