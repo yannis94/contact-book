@@ -18,7 +18,8 @@ export default function Searchbar(props) {
     function handleClick(e) {
         let username = document.querySelector("#username").value;
         if ( username !== "") {
-            contacts_obj[username] = {
+            contacts_obj = {
+                "pseudo": document.querySelector("#username").value,
                 "firstname": document.querySelector("#firstname").value,
                 "lastname": document.querySelector("#lastname").value,
                 "email": document.querySelector("#email").value,
