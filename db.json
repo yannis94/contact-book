@@ -1,64 +1,40 @@
 {
-    "contacts": [
-      {
-        "pseudo": "yaya94",
+  "contacts": [
+    {
+      "leClem": {
+        "firstname": "clement",
+        "lastname": "homavu",
+        "email": "clem.homavu@mail.com",
+        "telephone": "06060600",
+        "twitter": "clemOf",
+        "instagram": "leClem94"
+      },
+      "id": 1
+    },
+    {
+      "gh0st_Fr": {
         "firstname": "yannis",
         "lastname": "bengueci",
-        "birthdate": "06-23-1997",
-        "email": "bgci@gmail.fr",
-        "telephone": "020064201",
-        "twitter": "yayaleboss",
-        "instagram": "yayabg94"
+        "email": "bgyaya@gmail.com",
+        "telephone": "06060600",
+        "twitter": "yaya94",
+        "facebook": "bgci_yannis"
       },
-      {
-        "pseudo": "lala98",
-        "firstname": "Laura",
-        "lastname": "Peligrino",
-        "birthdate": "06-23-1997",
-        "email": "lolo@mail.fr",
-        "telephone": "0264254601",
-        "twitter": "lolopelig",
-        "instagram": "lauraPel"
+      "id": 2
+    }
+  ],
+  "test": [
+    {
+      "gh0st_Fr": {
+        "id": "user-1621968870846",
+        "firstname": "clement",
+        "lastname": "homavu",
+        "email": "clem.homavu@mail.com",
+        "telephone": "06060600",
+        "twitter": "clemOf",
+        "instagram": "leClem94"
       },
-      {
-        "pseudo": "Perfectow",
-        "firstname": "Perceval",
-        "lastname": "Des Champigo",
-        "birthdate": "06-23-1997",
-        "email": "perceval@gmail.com",
-        "telephone": "0526520656",
-        "twitter": "perpercev",
-        "instagram": "lepercevalOff"
-      },
-      {
-        "pseudo": "Jaco",
-        "firstname": "Jacob",
-        "lastname": "Louverta",
-        "birthdate": "06-23-1997",
-        "email": "jacob@laposte.fr",
-        "telephone": "064585985",
-        "twitter": "levraijaco",
-        "instagram": "jacoff"
-      }
-    ],
-    "test": [
-      {
-        "id": 1
-      },
-      {
-        "id": 2,
-        "tata": {
-          "firstname": "yannis",
-          "lastname": "bengueci",
-          "birthdate": "06-23-1997",
-          "email": "bgci@gmail.fr",
-          "telephone": "020064201",
-          "twitter": "yayaleboss",
-          "instagram": "yayabg94"
-        }
-      },
-      {
-        "id": 3
-      }
-    ]
-  }
+      "id": 1
+    }
+  ]
+}

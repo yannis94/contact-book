@@ -1,0 +1,43 @@
+.pannelContainer {
+    width: 45vw;
+    background-color: rgb(33, 7, 94);
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5vw 5vh;
+}
+
+.pannelInputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pannelInputs input {
+    width: 100%;
+    height: 35px;
+    border-width: 0;
+    background-color: transparent;
+    border-bottom: white solid 2px;
+    font-size: 18px;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+
+.pannelInputs input:focus {
+    outline: none;
+    border-radius: 5px;
+    background-color: rgba(205, 204, 219, 0.2);
+    border-bottom: white solid 1px;
+}
+
+.pannelInputs label {
+    color: white;
+}

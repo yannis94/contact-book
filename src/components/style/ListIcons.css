@@ -1,0 +1,9 @@
+.listIcon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.listIcon img {
+    margin-right: 10px;
+}
