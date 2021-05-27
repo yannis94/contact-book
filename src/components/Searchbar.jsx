@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import React from 'react'
-import './style/Searchbar.css'
+import '../style/Searchbar.css'
 
 export default function Searchbar() {
 

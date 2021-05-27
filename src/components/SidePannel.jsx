@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
-import './style/SidePannel.css'
+import { useEffect, useState, useContext } from 'react'
+import { contactContext } from '../Context'
+import '../style/SidePannel.css'
 
 export default function Searchbar(props) {
+    const { contacts, addContact } = useContext(contactContext)
+
 
     let contacts_obj = {}
 
@@ -37,6 +40,7 @@ export default function Searchbar(props) {
               body: JSON.stringify(contacts_obj)
             })
         }
+        //addContact(contacts_obj)
     }
 
     function handleChange (e) {

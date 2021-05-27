@@ -1,14 +1,15 @@
 import './App.css';
 import { useState, useEffect } from 'react'
-import ContactList from './components/ContactList'
-import Searchbar from './components/Searchbar'
-import SidePannel from './components/SidePannel'
+import ContactList from './components/ContactList.jsx'
+import Searchbar from './components/Searchbar.jsx'
+import SidePannel from './components/SidePannel.jsx'
+import { contactContext } from "./Context"
 
 function App() {
 	//path search pseudo //! localhost:3003/contacts?pseudo=${variable}
 
 	const [isLoaded, setIsLoaded] = useState(false);
-	const [contactList, setContactList] = useState([]);
+	const [contacts, setContacts] = useState([]);
 	const [error, setError] = useState(null);
 
 	const [url, setUrl] = useState("http://localhost:3003/contacts");
@@ -24,7 +25,7 @@ function App() {
 		.then(rep => rep.json())
 		.then(
 			(result) => {
-				setContactList(result);
+				setContacts(result);
 				setIsLoaded(true);
 			},
 			(error) => {
@@ -34,37 +35,29 @@ function App() {
 		)
 	}, [url])
 
-
-	if (isLoaded) {
-		return (
+	const addContact = (newContact) => {
+		//setContact( ...contacts, newContact )
+	}
+	const updateContact = (contactId, contactInfo) => {
+		//contacts.map + replace
+	}
+	const deleteContact = (contactId) => {}
+	return (
+		<contactContext.Provider value={{ contacts, addContact, updateContact, deleteContact }}>
 			<div className="App">
 				<h1>My contact book</h1>
 				<Searchbar />
-				<ContactList contacts={contactList} />
+				{
+					isLoaded 
+					? <ContactList /> 
+					: error !== null 
+						? <p>{error}</p> 
+						: <p>Loading ...</p>
+				}
 				<SidePannel />
 			</div>
-		)
-	}
-	else if (error !== null) {
-		return (
-			<div className="App">
-				<h1>My contact book</h1>
-				<Searchbar />
-				<p>{error}</p>
-				<SidePannel />
-			</div>
-		)
-	}
-	else  {
-		return (
-			<div className="App">
-				<h1>My contact book</h1>
-				<Searchbar />
-				<p>Loading ...</p>
-				<SidePannel />
-			</div>
-		)
-	}
+		</contactContext.Provider>
+	)
 
 }
 
