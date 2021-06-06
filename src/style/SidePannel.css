@@ -30,6 +30,7 @@
     font-size: 18px;
     transition: 0.2s;
     margin-bottom: 20px;
+    color: #bada55;
 }
 
 .pannelInputs input:focus {
@@ -41,4 +42,14 @@
 
 .pannelInputs label {
     color: white;
+}
+
+.pannelContainer button {
+    padding: 5px 15px;
+    font-size: 22px;
+    border-radius: 5px;
+    border-width: 0;
+    background-color: rgb(201, 201, 245);
+    color: #6b8613;
+    font-weight: bold;
 }

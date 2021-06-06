@@ -29,6 +29,16 @@
       "twitter": "fefefe",
       "facebook": "fefezezez",
       "id": 3
+    },
+    {
+      "pseudo": "i-rok",
+      "firstname": "billy",
+      "lastname": "guarik",
+      "email": "b.guarik@mail.com",
+      "telephone": "0606060606",
+      "twitter": "lebillyG",
+      "facebook": "b-guarik",
+      "id": 4
     }
   ],
   "test": [

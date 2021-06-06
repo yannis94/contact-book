@@ -4,6 +4,7 @@ import '../style/SidePannel.css'
 
 export default function Searchbar(props) {
     const { contacts, addContact } = useContext(contactContext)
+    
     const [ labelsObj, setLabelsObj ] = useState({
         "username": true,
         "firstname": true,
@@ -14,19 +15,9 @@ export default function Searchbar(props) {
         "facebook": true
     })
 
-    let contacts_obj = {}
-
-    let inputs = {
-        "username": <input id="username" type="text" placeholder="Your username" />,
-        "firstname": <input id="firstname"type="text" placeholder="Your firstname" />,
-        "lastname": <input id="lastname"type="text" placeholder="Your lastname" />,
-        "email": <input id="email"type="text" placeholder="Your email" />,
-        "tel": false,
-        "twitter": false,
-        "facebook": false
-    }
 
     function handleClick(e) {
+        let contacts_obj = {}
         let username = document.querySelector("#username").value;
         if ( username !== "") {
             contacts_obj = {
@@ -67,20 +58,33 @@ export default function Searchbar(props) {
     return (
         <div className="pannelContainer">
             <div className="pannelInputs" onChange={handleChange}>
-                {//voir condition affichage label
-                labelsObj["username"] ? null : <label for="username">Your username</label>
-                }
-                <input id="username" type="text" placeholder="Your username" />
-                <input id="firstname"type="text" placeholder="Your firstname" />
-                <input id="lastname"type="text" placeholder="Your lastname" />
-                <input id="email"type="text" placeholder="Your email" />
-                <input id="tel"type="text" placeholder="Your tel" />
-                <input id="twitter"type="text" placeholder="Your twitter tag" />
-                <input id="facebook"type="text" placeholder="Your facebook tag" />
+                {labelsObj["username"] ? null : <label for="username">Username</label>}
+                <input id="username" type="text" placeholder="Username" />
 
-                {inputs.map(input => {
-                    return input
-                })}
+
+                {labelsObj["firstname"] ? null : <label for="firstname">Firstname</label>}
+                <input id="firstname"type="text" placeholder="Firstname" />
+
+
+                {labelsObj["lastname"] ? null : <label for="lastname">Lastname</label>}
+                <input id="lastname"type="text" placeholder="Lastname" />
+
+
+                {labelsObj["email"] ? null : <label for="email">Email address</label>}
+                <input id="email"type="text" placeholder="Email address" />
+
+
+                {labelsObj["tel"] ? null : <label for="tel">Phone number</label>}
+                <input id="tel"type="text" placeholder="Phone number" />
+
+
+                {labelsObj["twitter"] ? null : <label for="twitter">Twitter tag</label>}
+                <input id="twitter"type="text" placeholder="Twitter tag" />
+
+
+                {labelsObj["facebook"] ? null : <label for="facebook">Facebook tag</label>}
+                <input id="facebook"type="text" placeholder="Facebook tag" />
+
             </div>
             <button onClick={handleClick}>Create</button>
         </div>

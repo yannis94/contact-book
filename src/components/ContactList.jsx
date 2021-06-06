@@ -9,18 +9,26 @@ import phone from "../img/phone.png"
 import facebook from "../img/fb.png"
 
 export default function ContactList(props) {
+    
+    const {contacts} = useContext(contactContext)
 
     function handleClick(event) {
-        console.log(event.target.key)
-    }
+        while (event.target.className !== "card_contact") {
+            event.target = event.target.parentElement
+        }
+        
+        let contactId = event.target.dataset.id
 
-    const {contacts} = useContext(contactContext) 
+        //open pannel with contact info
+    }
+ 
     
     return (
         <div id="contacts">  
             {contacts && contacts.map((contact, index) => {
+                console.log(contact.id)
                 return (
-                <div key={index} className="card_contact" onClick={handleClick}>
+                <div key={index} data-id={contact.id} className="card_contact" onClick={handleClick}>
                     <div className="card_left">
                         <div className="card_avatar"></div>
                         <h3>{contact.pseudo}</h3>
