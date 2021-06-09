@@ -52,11 +52,9 @@ function App() {
 		else {
 			setUrl("http://localhost:3003/contacts")
 		}
-		//setUrl(val)
 	}
 
 	const addContact = (newContact) => {
-		//setContact( ...contacts, newContact )
 		fetch(`http://localhost:3003/contacts`, {
 			headers: {
 				'Accept': 'application/json',

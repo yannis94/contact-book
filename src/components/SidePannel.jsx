@@ -57,7 +57,6 @@ export default function SidePannel(props) {
             labelStatus[e.target.id] =  true
             setLabelsObj(labelStatus)
         }
-        //console.log(labelsObj)
     }
 
     return (

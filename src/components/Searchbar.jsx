@@ -7,7 +7,6 @@ export default function Searchbar() {
     const [inputValue, setInputValue] = useState("")
     let { pannelObj, changeUrl } = useContext(contactContext)
     let stillTapping = null
-    //console.log(test)
 
     function handleChange(event) {
         setInputValue(event.target.value)
@@ -15,7 +14,7 @@ export default function Searchbar() {
     }
 
     function handleKeyUp(e) {
-        //disable refresh if user tapping on keyboard
+        //till user tapping on keyboard > no request
         clearTimeout(stillTapping)
 
         stillTapping = setTimeout(() => {

@@ -4,7 +4,6 @@
     height: 100vh;
     position: fixed;
     top: 0px;
-    right: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -16,7 +15,7 @@
     right: 0px;
 }
 .pannelClose {
-    right: -50vw;
+    left: 100vw;
 }
 
 .pannelInputs {
@@ -90,4 +89,10 @@
 }
 .curtainInvisible{
     display: none;
+}
+
+@media screen and (max-width: 990px) {
+    .pannelContainer {
+        width: 65vw;
+    }
 }
