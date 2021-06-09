@@ -11,6 +11,7 @@ import facebook from "../img/fb.png"
 export default function ContactList(props) {
     
     const {contacts} = useContext(contactContext)
+    console.log(contacts)
 
     function handleClick(event) {
         while (event.target.className !== "card_contact") {

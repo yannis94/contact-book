@@ -1,15 +1,23 @@
 import { useContext, useState } from 'react'
 import React from 'react'
+import { contactContext } from '../Context'
 import '../style/Searchbar.css'
 
 export default function Searchbar() {
 
     const [inputValue, setInputValue] = useState("")
+    let {openPannel} = useContext(contactContext)
     
+    //console.log(test)
 
     function handleChange(event) {
         setInputValue(event.target.value)
         console.log(inputValue)
+    }
+
+    function handleClick(e) {
+        openPannel(true)
+        //addContact()
     }
 
     return (
@@ -20,7 +28,7 @@ export default function Searchbar() {
                     placeholder="Looking for a contact" 
                     value={inputValue}
                     onChange={handleChange} />
-                <button>Add contact</button>
+                <button onClick={handleClick}>Add contact</button>
             </div>
         </div>
     )

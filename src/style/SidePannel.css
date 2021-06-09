@@ -10,7 +10,12 @@
     justify-content: space-around;
     align-items: center;
     padding: 5vw 5vh;
-    /*display: none;*/
+}
+.pannelOpen {
+    right: 0px;
+}
+.pannelClose {
+    right: -50vw;
 }
 
 .pannelInputs {
@@ -52,4 +57,18 @@
     background-color: rgb(201, 201, 245);
     color: #6b8613;
     font-weight: bold;
+}
+
+.closeBtn {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+@keyframes pannelSlide {
+    from { right: 0vw; }
+    to { right: -50vw; }
 }

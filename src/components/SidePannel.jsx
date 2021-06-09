@@ -2,8 +2,8 @@ import { useEffect, useState, useContext } from 'react'
 import { contactContext } from '../Context'
 import '../style/SidePannel.css'
 
-export default function Searchbar(props) {
-    const { contacts, addContact } = useContext(contactContext)
+export default function SidePannel(props) {
+    let { contacts, openPannel, pannelOpen } = useContext(contactContext)
     
     const [ labelsObj, setLabelsObj ] = useState({
         "username": true,
@@ -41,6 +41,9 @@ export default function Searchbar(props) {
         }
         //addContact(contacts_obj)
     }
+    function closePannel(el) {
+        openPannel(false)
+    }
 
     function handleChange (e) {
         let labelStatus = { ...labelsObj }
@@ -56,7 +59,10 @@ export default function Searchbar(props) {
     }
 
     return (
-        <div className="pannelContainer">
+        <div className={`pannelContainer${pannelOpen ? " pannelOpen" : " pannelClose"}`}>
+            <div className="closeBtn" onClick={closePannel}>
+                {">"}
+            </div>
             <div className="pannelInputs" onChange={handleChange}>
                 {labelsObj["username"] ? null : <label for="username">Username</label>}
                 <input id="username" type="text" placeholder="Username" />

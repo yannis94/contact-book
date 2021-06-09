@@ -11,6 +11,7 @@ function App() {
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [contacts, setContacts] = useState([]);
 	const [error, setError] = useState(null);
+	const [pannelOpen, setPannelOpen] = useState(false)
 
 	const [url, setUrl] = useState("http://localhost:3003/contacts");
 
@@ -35,15 +36,23 @@ function App() {
 		)
 	}, [url])
 
+	const openPannel = (stats) => {
+		//console.log(stats)
+		setPannelOpen(stats)
+		return pannelOpen
+	}
+
 	const addContact = (newContact) => {
 		//setContact( ...contacts, newContact )
+		console.log("addContact()")
+		//setPannelOpen(false)
 	}
 	const updateContact = (contactId, contactInfo) => {
 		//contacts.map + replace
 	}
 	const deleteContact = (contactId) => {}
 	return (
-		<contactContext.Provider value={{ contacts, addContact, updateContact, deleteContact }}>
+		<contactContext.Provider value={{ contacts, addContact, updateContact, deleteContact, openPannel, pannelOpen }}>
 			<div className="App">
 				<h1>My contact book</h1>
 				<Searchbar />
@@ -54,7 +63,7 @@ function App() {
 						? <p>{error}</p> 
 						: <p>Loading ...</p>
 				}
-				<SidePannel />
+				<SidePannel pannelState={pannelOpen} />
 			</div>
 		</contactContext.Provider>
 	)
