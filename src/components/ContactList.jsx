@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import {  useContext } from 'react'
 import ListIcons from './ListIcons.jsx'
 import '../style/ContactList.css'
 import { contactContext } from '../Context'

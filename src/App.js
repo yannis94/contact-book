@@ -64,11 +64,16 @@ function App() {
 			},
 			method: 'POST',
 			body: JSON.stringify(newContact)
+		}).then(()=> {
+			let listContact =  [...contacts]
+			listContact.push(newContact)
+			setContacts(listContact)
+			pannelObj.openPannel(false)
 		})
-		pannelObj.openPannel(false)
+		.catch(err => console.log(err))
+
 	}
 	const updateContact = (id, contactInfo) => {
-		//contacts.map + replace
 		fetch(`http://localhost:3003/contacts/${id}`, {
 			headers: {
 				'Accept': 'application/json',
@@ -77,6 +82,14 @@ function App() {
 			method: 'PUT',
 			body: JSON.stringify(contactInfo)
 		})
+		.then(() => {
+			let listContact = [...contacts]
+			listContact[id-1] = contactInfo
+			setContacts(listContact)
+			pannelObj.openPannel(false)
+		})
+		.catch(err => console.log(err))
+
 	}
 	const deleteContact = (id) => {
 		fetch(`http://localhost:3003/contacts/${id}`, {
@@ -86,7 +99,14 @@ function App() {
 			},
 			method: 'DELETE'
 		})
-		pannelObj.openPannel(false)
+		.then(() => {
+			let listContact = [...contacts]
+			listContact.pop(id-1)
+			setContacts(listContact)
+			pannelObj.openPannel(false)
+		})
+		.catch(err => console.log(err))
+
 	}
 	return (
 		<contactContext.Provider value={{ contacts, addContact, updateContact, deleteContact, pannelObj, changeUrl }}>

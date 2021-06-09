@@ -1,5 +1,4 @@
-import { useContext, useState } from 'react'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { contactContext } from '../Context'
 import '../style/Searchbar.css'
 

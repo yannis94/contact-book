@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useState, useContext } from 'react'
 import { contactContext } from '../Context'
 import '../style/SidePannel.css'
 
@@ -30,20 +30,21 @@ export default function SidePannel(props) {
                     "twitter": document.querySelector("#twitter").value,
                     "facebook": document.querySelector("#facebook").value
                 }
-                console.log(contacts_obj)
             }
             addContact(contacts_obj)
         }
         else if (e.target.dataset.action === "update") {
             console.log("update contact")
+            //updateContact(1, contacts_obj) it works
         }
         else if (e.target.dataset.action === "delete") {
             console.log("delete contact")
+            // deleteContact(8) it works 
         }
     }
     function closePannel(el) {
         pannelObj.openPannel(false)
-        console.log(pannelObj.content)
+        //console.log(pannelObj.content)
     }
 
     function handleChange (e) {
@@ -56,7 +57,7 @@ export default function SidePannel(props) {
             labelStatus[e.target.id] =  true
             setLabelsObj(labelStatus)
         }
-        console.log(labelsObj)
+        //console.log(labelsObj)
     }
 
     return (
@@ -67,27 +68,27 @@ export default function SidePannel(props) {
                     {">"}
                 </div>
                 <div className="pannelInputs" onChange={handleChange}>
-                    {labelsObj["username"] ? null : <label for="username">Username</label>}
+                    {labelsObj["username"] ? null : <label htmlFor="username">Username</label>}
                     <input id="username" type="text" placeholder="Username" />
 
 
-                    {labelsObj["firstname"] ? null : <label for="firstname">Firstname</label>}
+                    {labelsObj["firstname"] ? null : <label htmlFor="firstname">Firstname</label>}
                     <input id="firstname"type="text" placeholder="Firstname" />
 
 
-                    {labelsObj["lastname"] ? null : <label for="lastname">Lastname</label>}
+                    {labelsObj["lastname"] ? null : <label htmlFor="lastname">Lastname</label>}
                     <input id="lastname"type="text" placeholder="Lastname" />
 
 
-                    {labelsObj["email"] ? null : <label for="email">Email address</label>}
+                    {labelsObj["email"] ? null : <label htmlFor="email">Email address</label>}
                     <input id="email"type="text" placeholder="Email address" />
 
 
-                    {labelsObj["tel"] ? null : <label for="tel">Phone number</label>}
+                    {labelsObj["tel"] ? null : <label htmlFor="tel">Phone number</label>}
                     <input id="tel"type="text" placeholder="Phone number" />
 
 
-                    {labelsObj["twitter"] ? null : <label for="twitter">Twitter tag</label>}
+                    {labelsObj["twitter"] ? null : <label htmlFor="twitter">Twitter tag</label>}
                     <input id="twitter"type="text" placeholder="Twitter tag" />
 
 
