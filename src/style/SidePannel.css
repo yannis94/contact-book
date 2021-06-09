@@ -1,0 +1,98 @@
+.pannelContainer {
+    width: 45vw;
+    background-color: rgb(33, 7, 94);
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5vw 5vh;
+    z-index: 15;
+}
+.pannelOpen {
+    right: 0px;
+}
+.pannelClose {
+    left: 100vw;
+}
+
+.pannelInputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pannelInputs input {
+    width: 100%;
+    height: 35px;
+    border-width: 0;
+    background-color: transparent;
+    border-bottom: white solid 2px;
+    font-size: 18px;
+    transition: 0.2s;
+    margin-bottom: 20px;
+    color: #bada55;
+}
+
+.pannelInputs input:focus {
+    outline: none;
+    border-radius: 5px;
+    background-color: rgba(205, 204, 219, 0.2);
+    border-bottom: white solid 1px;
+}
+
+.pannelInputs label {
+    color: white;
+}
+
+.pannelContainer button {
+    padding: 5px 15px;
+    margin-bottom: 2vh;
+    font-size: 22px;
+    border-radius: 5px;
+    border-width: 0;
+    background-color: rgb(201, 201, 245);
+    color: #6b8613;
+    font-weight: bold;
+}
+
+#pannelBottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.closeBtn {
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+}
+
+.curtain {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(205, 204, 219, 0.7);
+    z-index: 4;
+}
+.curtainVisible {
+    display: block;
+}
+.curtainInvisible{
+    display: none;
+}
+
+@media screen and (max-width: 990px) {
+    .pannelContainer {
+        width: 65vw;
+    }
+}

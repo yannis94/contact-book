@@ -43,3 +43,10 @@
     color: #bada55;
     background-color: transparent;
 }
+
+@media screen and (max-width: 990px) {
+    .searchbar {
+        width: 90vw;
+        margin-left: 5vw;
+    }
+}
