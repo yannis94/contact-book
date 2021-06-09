@@ -36,23 +36,60 @@ function App() {
 		)
 	}, [url])
 
-	const openPannel = (stats) => {
-		//console.log(stats)
-		setPannelOpen(stats)
-		return pannelOpen
+	let pannelObj = {
+		"isOpen": pannelOpen,
+		"openPannel": function openPannel(stats) {
+			setPannelOpen(stats)
+			return pannelOpen
+		},
+		"content": {}
+	}
+
+	const changeUrl = (val) => {
+		if (val !== "") {
+			setUrl(`http://localhost:3003/contacts?pseudo=${val}`)
+		}
+		else {
+			setUrl("http://localhost:3003/contacts")
+		}
+		//setUrl(val)
 	}
 
 	const addContact = (newContact) => {
 		//setContact( ...contacts, newContact )
-		console.log("addContact()")
-		//setPannelOpen(false)
+		fetch(`http://localhost:3003/contacts`, {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			method: 'POST',
+			body: JSON.stringify(newContact)
+		})
+		pannelObj.openPannel(false)
 	}
-	const updateContact = (contactId, contactInfo) => {
+	const updateContact = (id, contactInfo) => {
 		//contacts.map + replace
+		fetch(`http://localhost:3003/contacts/${id}`, {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			method: 'PUT',
+			body: JSON.stringify(contactInfo)
+		})
 	}
-	const deleteContact = (contactId) => {}
+	const deleteContact = (id) => {
+		fetch(`http://localhost:3003/contacts/${id}`, {
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			method: 'DELETE'
+		})
+		pannelObj.openPannel(false)
+	}
 	return (
-		<contactContext.Provider value={{ contacts, addContact, updateContact, deleteContact, openPannel, pannelOpen }}>
+		<contactContext.Provider value={{ contacts, addContact, updateContact, deleteContact, pannelObj, changeUrl }}>
 			<div className="App">
 				<h1>My contact book</h1>
 				<Searchbar />
@@ -61,7 +98,7 @@ function App() {
 					? <ContactList /> 
 					: error !== null 
 						? <p>{error}</p> 
-						: <p>Loading ...</p>
+						: <h3 className="loading">Loading ...</h3>
 				}
 				<SidePannel pannelState={pannelOpen} />
 			</div>

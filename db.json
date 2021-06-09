@@ -1,13 +1,13 @@
 {
   "contacts": [
     {
-      "pseudo": "gh0st_Fr",
+      "pseudo": "ghost-2306",
       "firstname": "Yannis",
       "lastname": "Bengueci",
-      "email": "bgci.yannis@gmail.com",
-      "telephone": "06060600",
-      "twitter": "yayaDesBois",
-      "facebook": "YayaBgci",
+      "email": "bgyaya@gmail.com",
+      "telephone": "0614668792",
+      "twitter": "c_yaya_ou_pas",
+      "facebook": "yannis bgci",
       "id": 1
     },
     {
@@ -39,6 +39,26 @@
       "twitter": "lebillyG",
       "facebook": "b-guarik",
       "id": 4
+    },
+    {
+      "pseudo": "eminem",
+      "firstname": "Marshall",
+      "lastname": "Matters",
+      "email": "eminem@free.fr",
+      "telephone": "0678986521",
+      "twitter": "eminem_real",
+      "facebook": "slimshady",
+      "id": 5
+    },
+    {
+      "pseudo": "TodMopel",
+      "firstname": "Virgile",
+      "lastname": "Benaitier",
+      "email": "vbenaitier@mail.com",
+      "telephone": "0654589231",
+      "twitter": "leVirgileSauvage",
+      "facebook": "v-benaitier",
+      "id": 6
     }
   ],
   "test": [

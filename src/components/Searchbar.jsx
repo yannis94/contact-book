@@ -6,18 +6,27 @@ import '../style/Searchbar.css'
 export default function Searchbar() {
 
     const [inputValue, setInputValue] = useState("")
-    let {openPannel} = useContext(contactContext)
-    
+    let { pannelObj, changeUrl } = useContext(contactContext)
+    let stillTapping = null
     //console.log(test)
 
     function handleChange(event) {
         setInputValue(event.target.value)
-        console.log(inputValue)
+        
+    }
+
+    function handleKeyUp(e) {
+        //disable refresh if user tapping on keyboard
+        clearTimeout(stillTapping)
+
+        stillTapping = setTimeout(() => {
+            changeUrl(e.target.value)
+        }, 1000);
     }
 
     function handleClick(e) {
-        openPannel(true)
-        //addContact()
+        pannelObj["content"] = {}
+        pannelObj.openPannel(true)
     }
 
     return (
@@ -27,7 +36,8 @@ export default function Searchbar() {
                     type="text" 
                     placeholder="Looking for a contact" 
                     value={inputValue}
-                    onChange={handleChange} />
+                    onChange={handleChange} 
+                    onKeyUp={handleKeyUp}/>
                 <button onClick={handleClick}>Add contact</button>
             </div>
         </div>

@@ -10,6 +10,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 5vw 5vh;
+    z-index: 15;
 }
 .pannelOpen {
     right: 0px;
@@ -51,6 +52,7 @@
 
 .pannelContainer button {
     padding: 5px 15px;
+    margin-bottom: 2vh;
     font-size: 22px;
     border-radius: 5px;
     border-width: 0;
@@ -59,16 +61,33 @@
     font-weight: bold;
 }
 
+#pannelBottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 .closeBtn {
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     position: absolute;
     top: 15px;
     left: 15px;
     cursor: pointer;
 }
 
-@keyframes pannelSlide {
-    from { right: 0vw; }
-    to { right: -50vw; }
+.curtain {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(205, 204, 219, 0.7);
+    z-index: 4;
+}
+.curtainVisible {
+    display: block;
+}
+.curtainInvisible{
+    display: none;
 }
