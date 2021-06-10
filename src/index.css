@@ -3,8 +3,16 @@ body, input, p, button {
   font-family: 'Varela Round', sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: 'Merriweather', serif;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 code {

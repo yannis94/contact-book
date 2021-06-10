@@ -23,7 +23,15 @@ export default function Searchbar() {
     }
 
     function handleClick(e) {
-        pannelObj["content"] = {}
+        pannelObj.updateContent({
+            "pseudo": "",
+            "firstname": "",
+            "lastname": "",
+            "email": "",
+            "telephone": "",
+            "twitter": "",
+            "facebook": ""
+        })
         pannelObj.openPannel(true)
     }
 

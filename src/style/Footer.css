@@ -1,0 +1,19 @@
+.footer {
+    border-top: solid 1px rgb(33, 7, 94);
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+.footer img {
+    width: 25px;
+    transition: 0.5s;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}

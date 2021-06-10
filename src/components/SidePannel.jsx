@@ -3,48 +3,38 @@ import { contactContext } from '../Context'
 import '../style/SidePannel.css'
 
 export default function SidePannel(props) {
-    let { contacts, pannelObj, addContact, deleteContact, updateContact } = useContext(contactContext)
+    let { pannelObj, addContact, deleteContact, updateContact } = useContext(contactContext)
     
     const [ labelsObj, setLabelsObj ] = useState({
-        "username": true,
+        "pseudo": true,
         "firstname": true,
         "lastname": true,
         "email": true,
-        "tel": true,
+        "telephone": true,
         "twitter": true,
         "facebook": true
     })
 
-
     function handleClick(e) {
         if (e.target.dataset.action === "create") {
-            let contacts_obj = {}
-            let username = document.querySelector("#username").value;
+            
+            let username = document.querySelector("#pseudo").value;
             if ( username !== "") {
-                contacts_obj = {
-                    "pseudo": document.querySelector("#username").value,
-                    "firstname": document.querySelector("#firstname").value,
-                    "lastname": document.querySelector("#lastname").value,
-                    "email": document.querySelector("#email").value,
-                    "telephone": document.querySelector("#tel").value,
-                    "twitter": document.querySelector("#twitter").value,
-                    "facebook": document.querySelector("#facebook").value
-                }
+                addContact(pannelObj.content)
             }
-            addContact(contacts_obj)
+            else {
+                return
+            }
         }
         else if (e.target.dataset.action === "update") {
-            console.log("update contact")
-            //updateContact(1, contacts_obj) it works
+            updateContact(pannelObj.content.id, pannelObj.content)
         }
         else if (e.target.dataset.action === "delete") {
-            console.log("delete contact")
-            // deleteContact(8) it works 
+            deleteContact(pannelObj.content.id)
         }
     }
     function closePannel(el) {
         pannelObj.openPannel(false)
-        //console.log(pannelObj.content)
     }
 
     function handleChange (e) {
@@ -57,6 +47,7 @@ export default function SidePannel(props) {
             labelStatus[e.target.id] =  true
             setLabelsObj(labelStatus)
         }
+        pannelObj.content[e.target.id] = e.target.value
     }
 
     return (
@@ -67,35 +58,35 @@ export default function SidePannel(props) {
                     {">"}
                 </div>
                 <div className="pannelInputs" onChange={handleChange}>
-                    {labelsObj["username"] ? null : <label htmlFor="username">Username</label>}
-                    <input id="username" type="text" placeholder="Username" />
+                    {labelsObj["pseudo"] ? null : <label htmlFor="pseudo">Username</label>}
+                    <input id="pseudo" value={pannelObj.content.pseudo} type="text" placeholder="Username" />
 
 
                     {labelsObj["firstname"] ? null : <label htmlFor="firstname">Firstname</label>}
-                    <input id="firstname"type="text" placeholder="Firstname" />
+                    <input id="firstname" value={pannelObj.content.firstname} type="text" placeholder="Firstname" />
 
 
                     {labelsObj["lastname"] ? null : <label htmlFor="lastname">Lastname</label>}
-                    <input id="lastname"type="text" placeholder="Lastname" />
+                    <input id="lastname" value={pannelObj.content.lastname} type="text" placeholder="Lastname" />
 
 
                     {labelsObj["email"] ? null : <label htmlFor="email">Email address</label>}
-                    <input id="email"type="text" placeholder="Email address" />
+                    <input id="email" value={pannelObj.content.email} type="text" placeholder="Email address" />
 
 
-                    {labelsObj["tel"] ? null : <label htmlFor="tel">Phone number</label>}
-                    <input id="tel"type="text" placeholder="Phone number" />
+                    {labelsObj["telephone"] ? null : <label htmlFor="telephone">Phone number</label>}
+                    <input id="telephone" value={pannelObj.content.telephone} type="text" placeholder="Phone number" />
 
 
                     {labelsObj["twitter"] ? null : <label htmlFor="twitter">Twitter tag</label>}
-                    <input id="twitter"type="text" placeholder="Twitter tag" />
+                    <input id="twitter" value={pannelObj.content.twitter} type="text" placeholder="Twitter tag" />
 
 
-                    {labelsObj["facebook"] ? null : <label for="facebook">Facebook tag</label>}
-                    <input id="facebook"type="text" placeholder="Facebook tag" />
+                    {labelsObj["facebook"] ? null : <label htmlFor="facebook">Facebook tag</label>}
+                    <input id="facebook" value={pannelObj.content.facebook} type="text" placeholder="Facebook tag" />
 
                 </div>
-                {Object.keys(pannelObj.content).length > 0 ? <div id="pannelBottom"><button data-action="update" onClick={handleClick}>Update</button><button data-action="delete" onClick={handleClick}>Delete</button></div> : <button data-action="create" onClick={handleClick}>Create</button>}
+                {props.isNew === false ? <div id="pannelBottom"><button data-action="update" onClick={handleClick}>Update</button><button data-action="delete" onClick={handleClick}>Delete</button></div> : <button data-action="create" onClick={handleClick}>Create</button>}
                
             </div>
         </div>

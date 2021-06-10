@@ -46,7 +46,19 @@
 
 @media screen and (max-width: 990px) {
     .searchbar {
-        width: 90vw;
-        margin-left: 5vw;
+        width: 90%;
+        margin-left: 5%;
+    }
+    .searchbar div {
+        justify-content: space-between;
+    }
+    .searchbar input {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .searchbar button {
+        font-size: 13px;
     }
 }

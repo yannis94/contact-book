@@ -20,10 +20,13 @@ export default function ContactList(props) {
             //console.log(event.target)
         }
         
-        let contactId = parseInt(event.target.dataset.id) - 1
-        
-        pannelObj["content"] = contacts[contactId]
-        console.log(pannelObj["content"])
+        let contactId = parseInt(event.target.dataset.id)
+        contacts.forEach(i => {
+            if (i.id === contactId) {
+                pannelObj.updateContent(i)
+                return
+            }
+        })
         pannelObj.openPannel(true)
         //open pannel with contact info
     }
@@ -31,7 +34,7 @@ export default function ContactList(props) {
     
     return (
         <div id="contacts"> 
-            {contacts.length === 0 ? <h3 className="loading">No contact found</h3> : null} 
+            {contacts.length === 0 ? <h2 className="loading">No contact found</h2> : null} 
             {contacts && contacts.map((contact, index) => {
                 //console.log(contact.id)
                 return (
@@ -39,12 +42,12 @@ export default function ContactList(props) {
                     <div className="card_left">
                         <div className="card_avatar"></div>
                         <h3>{contact.pseudo}</h3>
+                        <div className="card_basic">
+                            <p>{contact.firstname} {contact.lastname}</p>
+                        </div>
                     </div>
                     <div className="card_right">
-                        <div className="card_basic">
-                            <p>Firstname : {contact.firstname}</p>
-                            <p>Lastname : {contact.lastname}</p>
-                        </div>
+                        <h4>More infos</h4>
                         <div className="card_infoSup">
                             <ListIcons path={email} content={contact.email} />
                             <ListIcons path={phone} content={contact.telephone} />

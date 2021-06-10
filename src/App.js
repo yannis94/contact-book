@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import ContactList from './components/ContactList.jsx'
 import Searchbar from './components/Searchbar.jsx'
 import SidePannel from './components/SidePannel.jsx'
+import Footer from './components/Footer.jsx'
 import { contactContext } from "./Context"
 
 function App() {
@@ -12,6 +13,15 @@ function App() {
 	const [contacts, setContacts] = useState([]);
 	const [error, setError] = useState(null);
 	const [pannelOpen, setPannelOpen] = useState(false)
+	const [pannelContent, setPannelContent] = useState({
+		"pseudo": "",
+		"firstname": "",
+		"lastname": "",
+		"email": "",
+		"telephone": "",
+		"twitter": "",
+		"facebook": ""
+	})
 
 	const [url, setUrl] = useState("http://localhost:3003/contacts");
 
@@ -42,7 +52,11 @@ function App() {
 			setPannelOpen(stats)
 			return pannelOpen
 		},
-		"content": {}
+		"updateContent": function updateContent(obj) {
+			setPannelContent(obj)
+			//console.log(pannelContent)
+		},
+		"content": pannelContent
 	}
 
 	const changeUrl = (val) => {
@@ -55,6 +69,8 @@ function App() {
 	}
 
 	const addContact = (newContact) => {
+		let listContact = [...contacts]
+		listContact.length > 0 ? newContact.id = listContact[listContact.length-1].id + 1 : newContact.id = 1
 		fetch(`http://localhost:3003/contacts`, {
 			headers: {
 				'Accept': 'application/json',
@@ -65,6 +81,7 @@ function App() {
 		}).then(()=> {
 			let listContact =  [...contacts]
 			listContact.push(newContact)
+			contacts.push(newContact)
 			setContacts(listContact)
 			pannelObj.openPannel(false)
 		})
@@ -81,8 +98,14 @@ function App() {
 			body: JSON.stringify(contactInfo)
 		})
 		.then(() => {
+			
 			let listContact = [...contacts]
-			listContact[id-1] = contactInfo
+			listContact.forEach(i => {
+				if (i.id === id) {
+					listContact[i] = contactInfo
+					return
+				}
+			})
 			setContacts(listContact)
 			pannelObj.openPannel(false)
 		})
@@ -99,13 +122,26 @@ function App() {
 		})
 		.then(() => {
 			let listContact = [...contacts]
-			listContact.pop(id-1)
+			listContact.forEach(i => {
+				if (i.id === id) {
+					listContact.pop(i.id)
+					return
+				}
+			})
 			setContacts(listContact)
 			pannelObj.openPannel(false)
 		})
 		.catch(err => console.log(err))
 
 	}
+
+	let newContactPannel = true
+	Object.keys(pannelObj.content).forEach(el => {
+		if (pannelObj.content[el] !== "") {
+			return newContactPannel = false
+		}
+	})
+
 	return (
 		<contactContext.Provider value={{ contacts, addContact, updateContact, deleteContact, pannelObj, changeUrl }}>
 			<div className="App">
@@ -116,9 +152,10 @@ function App() {
 					? <ContactList /> 
 					: error !== null 
 						? <p>{error}</p> 
-						: <h3 className="loading">Loading ...</h3>
+						: <h2 className="loading">Loading ...</h2>
 				}
-				<SidePannel pannelState={pannelOpen} />
+				<SidePannel isNew={newContactPannel} pannelState={pannelOpen} />
+				<Footer />
 			</div>
 		</contactContext.Provider>
 	)
