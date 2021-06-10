@@ -150,19 +150,5 @@
       "facebook": "ra's-al-ghul",
       "id": 15
     }
-  ],
-  "test": [
-    {
-      "gh0st_Fr": {
-        "id": "user-1621968870846",
-        "firstname": "clement",
-        "lastname": "homavu",
-        "email": "clem.homavu@mail.com",
-        "telephone": "06060600",
-        "twitter": "clemOf",
-        "instagram": "leClem94"
-      },
-      "id": 1
-    }
   ]
 }

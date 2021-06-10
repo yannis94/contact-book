@@ -7,12 +7,11 @@ import Footer from './components/Footer.jsx'
 import { contactContext } from "./Context"
 
 function App() {
-	//path search pseudo //! localhost:3003/contacts?pseudo=${variable}
-
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [contacts, setContacts] = useState([]);
 	const [error, setError] = useState(null);
 	const [pannelOpen, setPannelOpen] = useState(false)
+	const [url, setUrl] = useState("http://localhost:3003/contacts");
 	const [pannelContent, setPannelContent] = useState({
 		"pseudo": "",
 		"firstname": "",
@@ -23,7 +22,6 @@ function App() {
 		"facebook": ""
 	})
 
-	const [url, setUrl] = useState("http://localhost:3003/contacts");
 
 	useEffect(() => {
 		fetch(url, {
@@ -54,7 +52,6 @@ function App() {
 		},
 		"updateContent": function updateContent(obj) {
 			setPannelContent(obj)
-			//console.log(pannelContent)
 		},
 		"content": pannelContent
 	}
@@ -98,7 +95,6 @@ function App() {
 			body: JSON.stringify(contactInfo)
 		})
 		.then(() => {
-			
 			let listContact = [...contacts]
 			listContact.forEach(i => {
 				if (i.id === id) {
@@ -132,7 +128,6 @@ function App() {
 			pannelObj.openPannel(false)
 		})
 		.catch(err => console.log(err))
-
 	}
 
 	let newContactPannel = true
