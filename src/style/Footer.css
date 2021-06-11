@@ -1,5 +1,5 @@
 .footer {
-    border-top: solid 1px rgb(33, 7, 94);
+    border-top: solid 1px var(--contrast-color);
     height: 80px;
     width: 100%;
     display: flex;

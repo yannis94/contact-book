@@ -13,7 +13,7 @@
     width: 40vw;
     padding: 7px;
     border-width: 0;
-    border-bottom: #bada55 solid 2px;
+    border-bottom: var(--main-color) solid 2px;
     font-size: 18px;
     transition: 0.2s;
 }
@@ -22,8 +22,8 @@
     padding: 8px;
     border-radius: 7px;
     border-width: 0;
-    background-color: #bada55;
-    border: #bada55 2px solid;
+    background-color: var(--main-color);
+    border: var(--main-color) 2px solid;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -34,13 +34,13 @@
     outline: none;
     border-radius: 5px;
     background-color: rgba(186,218,1,0.2);
-    border-bottom: #bada55 solid 1px;
+    border-bottom: var(--main-color) solid 1px;
 }
 
 .searchbar button:hover {
     cursor: pointer;
     transform: scale(1.01);
-    color: #bada55;
+    color: var(--main-color);
     background-color: transparent;
 }
 

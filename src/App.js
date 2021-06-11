@@ -19,7 +19,8 @@ function App() {
 		"email": "",
 		"telephone": "",
 		"twitter": "",
-		"facebook": ""
+		"facebook": "",
+		"avatar": ""
 	})
 
 

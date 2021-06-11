@@ -30,7 +30,8 @@ export default function Searchbar() {
             "email": "",
             "telephone": "",
             "twitter": "",
-            "facebook": ""
+            "facebook": "",
+            "avatar": ""
         })
         pannelObj.openPannel(true)
     }

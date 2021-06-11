@@ -12,7 +12,8 @@ export default function SidePannel(props) {
         "email": true,
         "telephone": true,
         "twitter": true,
-        "facebook": true
+        "facebook": true,
+        "avatar": true
     })
 
     function handleClick(e) {
@@ -52,7 +53,8 @@ export default function SidePannel(props) {
 
     return (
         <div>
-            <div className={`curtain${pannelObj.isOpen ? " curtainVisible" : " curtainInvisible"}`}></div>
+            <div className={`curtain${pannelObj.isOpen ? " curtainVisible" : " curtainInvisible"}`}>
+            </div>
             <div className={`pannelContainer${pannelObj.isOpen ? " pannelOpen" : " pannelClose"}`}>
                 <div className="closeBtn" onClick={closePannel}>
                     {">"}
@@ -84,6 +86,9 @@ export default function SidePannel(props) {
 
                     {labelsObj["facebook"] ? null : <label htmlFor="facebook">Facebook tag</label>}
                     <input id="facebook" value={pannelObj.content.facebook} type="text" placeholder="Facebook tag" />
+
+                    {labelsObj["avatar"] ? null : <label htmlFor="avatar">Avatar image (url)</label>}
+                    <input id="avatar" value={pannelObj.content.avatar} type="text" placeholder="Avatar image (url)" />
 
                 </div>
                 {props.isNew === false ? <div id="pannelBottom"><button data-action="update" onClick={handleClick}>Update</button><button data-action="delete" onClick={handleClick}>Delete</button></div> : <button data-action="create" onClick={handleClick}>Create</button>}

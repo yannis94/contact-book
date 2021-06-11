@@ -1,7 +1,7 @@
 .pannelContainer {
     width: 45vw;
-    background-color: rgb(33, 7, 94);
-    height: 100vh;
+    background-color: var(--contrast-color);
+    height: 90vh;
     position: fixed;
     top: 0px;
     display: flex;
@@ -35,7 +35,7 @@
     font-size: 18px;
     transition: 0.2s;
     margin-bottom: 20px;
-    color: #bada55;
+    color: var(--main-color);
 }
 
 .pannelInputs input:focus {

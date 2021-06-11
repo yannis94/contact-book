@@ -33,7 +33,9 @@ export default function ContactList(props) {
                 return (
                     <div key={index} data-id={contact.id} className="card_contact" onClick={handleClick}>
                         <div className="card_left">
-                            <div className="card_avatar"></div>
+                            <div className="card_avatar">
+                                {contact.avatar ? <img className="avatar_img" src={contact.avatar} alt={`avatar-${contact.pseudo}`} /> : null}
+                            </div>
                             <h3>{contact.pseudo}</h3>
                             <div className="card_basic">
                                 <p>{contact.firstname} {contact.lastname}</p>

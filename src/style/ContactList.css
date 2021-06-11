@@ -1,6 +1,6 @@
 #contacts {
     width: 90%;
-    min-height: 67vh;
+    min-height: 60vh;
     margin: 50px;
     margin-left: 5%;
     display: grid;
@@ -10,11 +10,12 @@
 }
 
 .card_contact {
-    background-color: #bada55;
+    background-color: var(--main-color);
     border-radius: 5px;
     width: 100%;
     transition: 0.2s;
     display: flex;
+    color: var(--contrast-color);
 }
 
 .card_left {
@@ -39,8 +40,12 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: rgb(22, 22, 75);
+    background-color: var(--contrast-color);
     background-image: url('https://picsum.photos/200');
+    overflow: hidden;
+}
+.avatar_img {
+    width: 100px;
 }
 
 .card_basic {
@@ -71,6 +76,13 @@
     #contacts {
         grid-template-columns: repeat(1, 1fr);
     }
+    .card_avatar {
+        width: 130px;
+        height: 130px;
+    }
+    .avatar_img {
+        width: 130px;
+    }
     p {
         font-size: 14px;
     }
@@ -80,6 +92,9 @@
     .card_avatar {
         width: 70px;
         height: 70px;
+    }
+    .avatar_img {
+        width: 70px;
     }
     h3 {
         font-size: 17px;

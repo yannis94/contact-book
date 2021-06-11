@@ -1,3 +1,8 @@
+:root {
+  --main-color: #bada55;
+  --contrast-color: rgb(33, 7, 94);
+}
+
 .App {
   text-align: center;
   min-height: 100vh;
